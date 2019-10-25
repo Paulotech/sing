@@ -1,29 +1,44 @@
-// Noto serif regular 
-// Noto serif bold 
-// Open Sans regular 
-// Open Sans bold 
-body {
-    p {
-        font-family: "Open Sans";
-        font-size: 16px;
-        strong {
-            font-family: "Open Sans bold";
-        }
-    }
+h1 {
+    font-size: 60px;
 }
-.titulo {
-    font-family: "Noto Serif";
-    strong {
-        font-family: "Noto Serif Bold";
-    }
+
+h2 {
+    font-size: 50px;
 }
-.subtitulo {
+
+h3 {
+    font-size: 38px;
+}
+
+h4 {
+    font-size: 22px;
+}
+
+h5 {
+    font-size: 18px;
+}
+
+p {
     font-family: "Open Sans";
+    font-size: 18px;
     strong {
         font-family: "Open Sans bold";
     }
 }
 
+.title {
+    font-family: "Noto Serif";
+    strong {
+        font-family: "Noto Serif Bold";
+    }
+} 
+
+.subtitle {
+    font-family: "Open Sans";
+    strong {
+        font-family: "Open Sans bold";
+    }
+}
 
 .abertura {
     @include flex(flex, center, center);
@@ -31,8 +46,36 @@ body {
     background-image: url('../assets/image/img-abertura.jpg');
     background-position: center;
     background-size: cover;
-    height: calc(100vh - 100px);
+    height: calc(130vh - 100px);
 
+    .containerCurso {
+        text-align: right;
+        color: $color-1;
+    }
+}
+
+.banner {
+    position: relative;
+    &::after {
+        content: "";
+        position: absolute;
+        background-color: $color-14;
+        width: 500px;
+        height: 60px;
+        top: 20px;
+        left: -520px;
+    }
+}
+
+.final {
+    @include flex(flex, center, center);
+    background-color: $color-14;
+    background-image: url('../assets/image/img-final.jpg');
+    background-repeat: no-repeat;
+    background-position: center -30px;
+    background-size: cover;
+    height: 50vh;
+     
     .containerCurso {
         text-align: right;
         color: $color-1;

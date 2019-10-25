@@ -15,10 +15,53 @@ $color-14: #1a365f;
 $color-15: #974196;
 $color-16: #de3583;
 
+$colors: (
+    "white": $color-1,
+    "gray": $color-3,
+    "yellow": $color-6,
+    "blue": $color-14
+);
 
+@each $name, $color in $colors {
+    .color-#{$name} {
+        color: $color;
+    }
+    .bgc-#{name} {
+        background-color: $color;
+    }
+}
 
+$arraySize: 5px, 10px, 15px, 20px, 25px, 30px, 35px, 40px, 45px, 50px;
 
-@mixin flex($d, $j, $a ) {
+@each $size in $arraySize {
+    .pt-#{$size} {
+        padding-top: $size;
+    }
+    .pr-#{$size} {
+        padding-right: $size;
+    }
+    .pb-#{$size} {
+        padding-bottom: $size;
+    }
+    .pl-#{$size} {
+        padding-left: $size;
+    }
+    
+    .mt-#{$size} {
+        margin-top: $size;
+    }
+    .mr-#{$size} {
+        margin-right: $size;
+    }
+    .mb-#{$size} {
+        margin-bottom: $size;
+    }
+    .ml-#{$size} {
+        margin-left: $size;
+    }
+}
+
+@mixin flex($d, $j, $a) {
     display: #{$d};
     align-items: #{$j};
     justify-content: #{$a};
