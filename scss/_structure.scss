@@ -2,3 +2,39 @@
 // Noto serif bold 
 // Open Sans regular 
 // Open Sans bold 
+body {
+    p {
+        font-family: "Open Sans";
+        font-size: 16px;
+        strong {
+            font-family: "Open Sans bold";
+        }
+    }
+}
+.titulo {
+    font-family: "Noto Serif";
+    strong {
+        font-family: "Noto Serif Bold";
+    }
+}
+.subtitulo {
+    font-family: "Open Sans";
+    strong {
+        font-family: "Open Sans bold";
+    }
+}
+
+
+.abertura {
+    @include flex(flex, center, center);
+    
+    background-image: url('../assets/image/img-abertura.jpg');
+    background-position: center;
+    background-size: cover;
+    height: calc(100vh - 100px);
+
+    .containerCurso {
+        text-align: right;
+        color: $color-1;
+    }
+}
