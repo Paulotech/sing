@@ -1,18 +1,19 @@
 header {
     @include flex(flex, center, center);
 
-    position: relative;
+    position: fixed;
     background-color: $color-14;
     width: 100%;
     height: 100px;
     color: $color-1;
+    z-index: 1;
     
     .content {
         @include flex(flex, space-around, center);
         width: 100%;
     }
     //progress bar
-    .progress-bar {
+    .progress-container {
         position: absolute;
         width: 100%;
         height: 5px;
@@ -21,14 +22,21 @@ header {
         bottom: 0;
         left: 0;
         
-        &::after {
+        .progress-bar {
             content: "";
             position: absolute;
-            width: 50%;
+            width: 0%;
             height: 5px;
             background-color: $color-6;
             bottom: 0;
             left: 0;
+        }
+    }
+}
+@media screen and (max-width: 580px) {
+    header {
+        .containerCurso {
+            display: none;
         }
     }
 }

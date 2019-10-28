@@ -39,13 +39,15 @@
             </div>
         </div>
 
-        <div class="progress-bar"></div>
+        <div class="progress-container">
+            <div class="progress-bar" id="myBar"></div>
+        </div>
 
     </header>
     
     <main>
         <!-- Abertura -->
-        <section class="abertura">
+        <section class="opening">
             
             <div class="container">
                 <div class="row">
@@ -54,7 +56,7 @@
                             
                             <div class='content'>
                                 <h2 id="unidade" class="title"><strong>Unidade 1</strong></h2>
-                                <h1 id="nomeCurso" class='title pt-20px pb-20px'>Afinal, o que é a BNCC e como ela orienta a educação básica?</h1>
+                                <h1 id="courseName" class='title pt-20px pb-20px'>Afinal, o que é a BNCC e como ela orienta a educação básica?</h1>
                                 
                                 <p>O desafio dessa Unidade é proporcionar uma visão abrangente sobre a Base Nacional Comum Curricular (BNCC), uma empreitada ousada, já que se trata de um documento extenso e detalhado. Entretanto, vale ressaltar que não há, de forma alguma, a pretensão de substituir a análise da versão completa que será realizada ao longo de todo o curso. Essa visão mais ampla lhe permitirá enxergar os conceitos e as etapas da BNCC de forma integrada.</p>
                             </div>
@@ -134,8 +136,8 @@
                                 </div> 
     
                                 <div class="back">
-                                    <p class="text-center"><strong>Educação Integral</strong></p>
-                                    <p class='text-center'>Como exemplo deste princípio, as <strong>Competências Gerais</strong> para a Educação Básica envolvem <strong>valores humanos</strong> que vão além dos saberes práticos.</p>
+                                    <p class="text-center"><strong>Progressão na Aprendizagem</strong></p>
+                                    <p class='text-center'>Por exemplo, o fato de que <strong>Campos de Experiência</strong> na Educação Infantil, de certa forma, tem continuidade nas <strong>Áreas de Conhecimento</strong> no Ensino Fundamental.</p>
                                 </div> 
                             </div>
 
@@ -200,7 +202,7 @@
 
                         </div>
 
-                        <p class="pt-50px pr-50px">Ao longo de todo o documento da BNCC, de acordo com cada Etapa da Educação Básica, os objetivos ou as habilidades são apresentados procurando assegurar com clareza o que se espera que todos os alunos aprendam na respectiva Etapa. Vamos ver a seguir alguns exemplos:</p>
+                        <p class="pt-50px pb-50px">Ao longo de todo o documento da BNCC, de acordo com cada Etapa da Educação Básica, os objetivos ou as habilidades são apresentados procurando assegurar com clareza o que se espera que todos os alunos aprendam na respectiva Etapa. Vamos ver a seguir alguns exemplos:</p>
                     </div>
 
                 </div>
@@ -228,7 +230,7 @@
         <section>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-10 col-md-offset-1">
 
                         <p class="pt-50px pb-50px">Como foi possível perceber, cada habilidade é identificada por um código alfanumérico, utilizado apenas para diferenciar as habilidades de cada ano, mas não representa uma ordem ou hierarquia esperada das aprendizagens. Portanto, vale lembrar que esses agrupamentos propostos não devem ser tomados como modelo obrigatório para o desenho dos currículos. Assim, a BNCC fornece orientações para a elaboração de currículos em todo o País, tornando flexível a implementação aos diferentes contextos.</p>
 
@@ -250,38 +252,199 @@
         <section>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12 mb-50px">
-                        <div id="accordion">
-                            <h3>Section 1</h3>
-                            <div>
-                                <p>
-                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
-                                </p>
+                    <div class="col-md-10 col-md-offset-1 mb-50px">
+                        <div id="accordion" class="accordion">
+                            <!-- 1 -->
+                            <div class="accordion-header one">
+                                <h4>1.	Conhecimento</h4>
                             </div>
-                            <h3>Section 2</h3>
-                            <div>
-                                <p>
-                                Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
-                                purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
-                                velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
-                                suscipit faucibus urna.
-                                </p>
+                            <div class='accordion-content one'>
+                                <div class="content">
+                                    <p><strong>Colaborar para solidariedade</strong> e justiça a partir da compreensão da realidade natural e social, com base nos conhecimentos científicos e humanísticos.</p>
+                                </div>
                             </div>
+                            
+                            <!-- 2 -->
+                            <div class="accordion-header two">
+                                <h4>2.	Pensamento científico, crítico e criativo</h4>
+                            </div>
+                            <div class='accordion-content two'>
+                                <div class="content">
+                                    <p><strong>Formular e resolver questões</strong> por meio da investigação, reflexão e formulação de hipóteses, com critérios científicos e tecnológicos.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- 3 -->
+                            <div class="accordion-header three">
+                                <h4>3.	Repertório cultural</h4>
+                            </div>
+                            <div class='accordion-content three'>
+                                <div class="content">
+                                    <p><strong>Tomar parte ativa</strong> em atividades culturais, valorizando e fruindo a produção cultural e artística em toda sua diversidade.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- 4 -->
+                            <div class="accordion-header four">
+                                <h4>4.	Comunicação</h4>
+                            </div>
+                            <div class='accordion-content four'>
+                                <div class="content">
+                                    <p><strong>Expressar-se e comunicar-se</strong>, fazendo uso do seu idioma e de linguagens artísticas, cientificas e matemáticas, de forma verbal, escrita e digital.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- 5 -->
+                            <div class="accordion-header five">
+                                <h4>5.	Cultura digital</h4>
+                            </div>
+                            <div class='accordion-content five'>
+                                <div class="content">
+                                    <p><strong>Promover iniciativas individuais e coletivas</strong>, utilizando tecnologias de informação para comunicação, de forma participativa e crítica.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- 6 -->
+                            <div class="accordion-header six">
+                                <h4>6. Trabalho e projeto de vida</h4>
+                            </div>
+                            <div class='accordion-content six'>
+                                <div class="content">
+                                    <p><strong>Preparar-se para conceber e elaborar seus projetos de vida</strong>, com liberdade e responsabilidade.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- 7 -->
+                            <div class="accordion-header seven">
+                                <h4>7.	Argumentação</h4>
+                            </div>
+                            <div class='accordion-content seven'>
+                                <div class="content">
+                                    <p><strong>Defender ideias e pontos de vista</strong> de forma responsável e ética, argumentando de maneira informada e ponderada.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- 8 -->
+                            <div class="accordion-header eight">
+                                <h4>8.	Autoconhecimento e autocuidado</h4>
+                            </div>
+                            <div class='accordion-content eight'>
+                                <div class="content">
+                                    <p><strong>Reconhecer os próprios sentimentos e dos demais</strong>, com consideração e autocrítica, e cuidar-se física e emocionalmente.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- 9 -->
+                            <div class="accordion-header nine">
+                                <h4>9.	Empatia e cooperação</h4>
+                            </div>
+                            <div class='accordion-content nine'>
+                                <div class="content">
+                                    <p><strong>Promover diálogo e vínculos afetivos</strong>, com apreço e sem preconceito diante da diversidade humana, com respeito próprio e recíproco.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- 10 -->
+                            <div class="accordion-header ten">
+                                <h4>10.	Responsabilidade e cidadania</h4>
+                            </div>
+                            <div class='accordion-content ten'>
+                                <div class="content">
+                                    <p><strong>Tomar decisões individuais ou coletivas</strong>, com responsabilidade, compreensão e autonomia, de forma ética e democrática.</p>
+                                </div>
+                            </div>
+
                         </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                            <p>As Competências acima podem ser formuladas de muitas maneiras. Faça uma leitura das Competências gerais originais da BNCC e veja se concorda com essa síntese que foi proposta.</p>
                     </div>
                 </div>
             </div>
 
         </section>
 
+        <section>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-9 col-md-offset-1">
+                        <div class="featured mt-50px mb-50px">
+                            <div class="row">
+                                <div class="col-md-9 ml-25px">
+                                    <p>BRASIL. Ministério da Educação e do Desporto. Base Nacional Comum C––urricular. Brasília: MEC/SEB/CNE, 2017.</p>
+                                    <p><strong>Consulte as páginas 09 e 10 em sua BNCC</strong></p>
+                                    <p>Caso ainda não tenha realizado o download, <a href="#"><strong>clique aqui</strong></a>.</p>
+                                </div>
+                                <div class="col-md-2 text-center pt-20px">
+                                    <img src="assets/image/icone-leitura.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <p>A promoção dessas Competências se realizará no que os estudantes façam, como se verá mais adiante, nas demais disciplinas deste Programa.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
 
+                        <h2 class='title pt-30px pb-20px color-blue banner'><img src="assets/image/icone-edit.png" alt="" srcset=""> Diário de Bordo</h2>
+                        <p class="pb-30px">A seguir, exercite a interpretação e aplicação das competências gerais. Esta atividade será realizada em três etapas, veja as orientações abaixo e registre cada passo em seu Diário de Bordo:</p>
+                        
+                        <ol class="ordered-list">
+                            <li>Escolha uma, entre as dez competências na versão original da BNCC e elabore a sua própria versão.</li>
+                            <li>Imagine e proponha uma atividade coletiva, em sala de aula ou em outro espaço, para desenvolver com seus alunos a competência que tenha escolhido.</li>
+                            <li>Conceba uma avaliação, para verificar se a competência foi desenvolvida, envolvendo cada estudante por ele mesmo e pelo seu coletivo de trabalho.</li>
+                        </ol>
+                        
+                        <p class="pb-30px">Os registros no Diário de Bordo são fundamentais para construir conhecimentos mais avançados nas próximas unidades.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="box-featured mt-50px">
+                            <div class="row">
+                                <div class="col-sm-6 col-md-8">
+                                    <p class="text-center"><strong>Idealmente, além de pro–por a atividade e sua avaliação, você poderia mesmo colocar em prática em seu ambiente de trabalho esta parte do exercício, registrando o que conseguiu em seu Diário de Bordo, o que seria ainda mais estimulante!</strong></p>
+                                </div>
+                                <div class="col-sm-3 col-md-4">
+                                    <div class="box-img">
+                                        <img src="assets/image/img-2.png" alt="" srcset="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
         <!-- Final -->
-        <section class="final">
+        <section class="end">
             
             <div class="container">
                 <div class="row">
@@ -289,7 +452,7 @@
                         <div class="containerCurso">
                             
                             <div class='content'>
-                                <h1 id="nomeCurso" class='title pb-10px'>Parebéns!</h1>
+                                <h1 id="courseName" class='title pb-10px'>Parebéns!</h1>
                                 
                                 <p>Você acaba de finalizar a primeira aula da Unidade 1.</p>
                                 <p>Na próxima etapa, veremos um resumo do que propõe <br /> a BNCC para cada etapa escolar.</p>
@@ -301,8 +464,7 @@
             </div>
 
         </section>
-    </main>
-
+    </footer>
 
 
 

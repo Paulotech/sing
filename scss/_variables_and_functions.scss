@@ -15,6 +15,8 @@ $color-14: #1a365f;
 $color-15: #974196;
 $color-16: #de3583;
 
+
+
 $colors: ("white": $color-1,"gray": $color-3, "yellow": $color-6, "blue": $color-14);
 
 @each $name, $color in $colors {
@@ -60,4 +62,9 @@ $arraySize: 5px, 10px, 15px, 20px, 25px, 30px, 35px, 40px, 45px, 50px;
     display: #{$d};
     align-items: #{$j};
     justify-content: #{$a};
+}
+
+.flex {
+    display: flex;
+    align-items: center;
 }
