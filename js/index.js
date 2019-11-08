@@ -6,7 +6,7 @@ window.onscroll = scroll;
 // Armazena a API se houver
 var scormAPI = getAPIHandle(window);
 
-var travaInteracao = true;
+var travaInteracao = false;
 
 // Scroll Bar
 var winScroll = 0;
