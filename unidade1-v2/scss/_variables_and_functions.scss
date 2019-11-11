@@ -21,7 +21,7 @@ $color-20: #299f48;
 $color-21: #2b80c3;
 $color-22: #c7e6ff;
 $color-23: #fff4c9;
-$color-24: #e3be2a;
+$color-24: #edb11e;
 
 $colors: (
     "white": $color-1,
@@ -131,4 +131,5 @@ $arraySize: 5px, 10px, 15px, 20px, 25px, 30px, 35px, 40px, 45px, 50px;
 .flex {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
