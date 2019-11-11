@@ -1,0 +1,89 @@
+$color-1: #ffffff;
+$color-2: #fae7bb;
+$color-3: #66665d;
+$color-4: #cd5759;
+$color-5: #f7932d;
+$color-6: #edb11e;
+$color-7: #ffb835;
+$color-8: #d2d532;
+$color-9: #bdd646;
+$color-10: #89c64b;
+$color-11: #04a89f;
+$color-12: #0b8ac9;
+$color-13: #0071b3;
+$color-14: #1a365f;
+$color-15: #974196;
+$color-16: #de3583;
+$color-17: #e6e6e6;
+
+$colors: (
+    "white": $color-1,
+    "gray": $color-3, 
+    "gray-light": $color-17, 
+    "yellow": $color-6, 
+    "blue": $color-14, 
+    "red": $color-4
+);
+
+@each $name, $color in $colors {
+    .color-#{$name} {
+        color: $color;
+    }
+    .bgc-#{$name} {
+        background-color: $color;
+    }
+    
+    .banner-#{$name} {
+        position: relative;
+        &::after {
+            content: "";
+            position: absolute;
+            background-color: $color;
+            width: 500px;
+            height: 60px;
+            top: 25px;
+            left: -520px;
+        }
+    }
+}
+
+$arraySize: 5px, 10px, 15px, 20px, 25px, 30px, 35px, 40px, 45px, 50px;
+
+@each $size in $arraySize {
+    .pt-#{$size} {
+        padding-top: $size;
+    }
+    .pr-#{$size} {
+        padding-right: $size;
+    }
+    .pb-#{$size} {
+        padding-bottom: $size;
+    }
+    .pl-#{$size} {
+        padding-left: $size;
+    }
+    
+    .mt-#{$size} {
+        margin-top: $size;
+    }
+    .mr-#{$size} {
+        margin-right: $size;
+    }
+    .mb-#{$size} {
+        margin-bottom: $size;
+    }
+    .ml-#{$size} {
+        margin-left: $size;
+    }
+}
+
+@mixin flex($d, $j, $a) {
+    display: #{$d};
+    align-items: #{$j};
+    justify-content: #{$a};
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
