@@ -177,7 +177,7 @@ $accordionColors:(
             &::before {
                 @include flex(flex, center, center);
                 position: absolute;
-                content: "\2013";
+                content: "+";
                 top: -7px;
                 left: -70px;
                 height: 0px;
@@ -190,7 +190,7 @@ $accordionColors:(
         &.ui-state-active {
             h4 {
                 &::before {
-                    content: "+";
+                    content: "\2013";
                 }
             }
         }
