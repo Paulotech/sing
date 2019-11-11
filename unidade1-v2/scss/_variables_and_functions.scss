@@ -92,11 +92,17 @@ $colors: (
     }
 }
 
+@for $i from 5 to 100{   
+    .pd-#{$i} {
+        padding: 0px + $i;
+    }
+}
+
 $arraySize: 5px, 10px, 15px, 20px, 25px, 30px, 35px, 40px, 45px, 50px;
 
 @each $size in $arraySize {
     .pt-#{$size} {
-        padding-top: $size;
+        padding-top: 5px + $size;
     }
     .pr-#{$size} {
         padding-right: $size;

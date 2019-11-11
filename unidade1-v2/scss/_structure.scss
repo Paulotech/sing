@@ -30,6 +30,12 @@ p, ol, ul, li {
         font-family: "Open Sans bold";
     }
 }
+.d-none {
+    display: none !important;
+}
+.img-100 {
+    width: 100%;
+}
 
 .title {
     font-family: "Noto Serif";
@@ -146,6 +152,7 @@ p, ol, ul, li {
     width: 100%;
     height: 300px;
     .audio-content {
+        @include flex(flex, center, center);
         background-color: $color-4;
         padding: 50px 20px;
         border-radius: 10px;
@@ -153,7 +160,6 @@ p, ol, ul, li {
         margin-right: -30px;
         width: 100%;
         height: 170px;
-        display: flex;
 
        
     
@@ -173,7 +179,6 @@ p, ol, ul, li {
         
         .audio {
             @include flex(flex, center, center);
-            margin-left: 50px;
         }
     }
 }
