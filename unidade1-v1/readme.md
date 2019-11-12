@@ -12,3 +12,33 @@
 </section>
 
 ## 
+
+<section>
+    <div class="container-fluid">
+        <div class="row">                    
+            <div class="col-md-4" data-aos="fade-right">                        
+                <div class="imagem-negativa">
+                    <img src="assets/image/img-1.png" alt="">
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="box-audio img-1 mgn-b-50" data-aos="fade-left">                            
+                    <div class="audio-content">
+                        <div class="icone">
+                            <img src="assets/image/icone-podcast.png" alt="">
+                            <p><strong>Ouça o podcast a seguir e entenda a relação entre Competências e Hablidades na BNCC:</strong></p>
+                        </div>
+
+                        <div id="audio" class="audio">
+                            <div role="timer"></div>
+                        </div>                                
+                    </div>
+                </div>
+
+                <p class="pd-t-50 pd-b-50" anima>Ao longo de todo o documento da BNCC, de acordo com cada Etapa da Educação Básica, os objetivos ou as habilidades são apresentados procurando assegurar com clareza o que se espera que todos os alunos aprendam na respectiva Etapa. Vamos ver a seguir alguns exemplos:</p>
+            </div>
+
+        </div>
+    </div>
+</section>

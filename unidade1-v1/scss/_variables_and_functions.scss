@@ -47,36 +47,6 @@ $colors: (
     }
 }
 
-$arraySize: 5px, 10px, 15px, 20px, 25px, 30px, 35px, 40px, 45px, 50px;
-
-@each $size in $arraySize {
-    .pt-#{$size} {
-        padding-top: $size;
-    }
-    .pr-#{$size} {
-        padding-right: $size;
-    }
-    .pb-#{$size} {
-        padding-bottom: $size;
-    }
-    .pl-#{$size} {
-        padding-left: $size;
-    }
-    
-    .mt-#{$size} {
-        margin-top: $size;
-    }
-    .mr-#{$size} {
-        margin-right: $size;
-    }
-    .mb-#{$size} {
-        margin-bottom: $size;
-    }
-    .ml-#{$size} {
-        margin-left: $size;
-    }
-}
-
 @for $i from 0 through 100 {
     .pd-#{$i} {
         padding: 0px + $i;
