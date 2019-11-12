@@ -110,11 +110,12 @@ p, ol, ul, li {
 .box-audio {
     @include flex(flex, center, center);
     padding: 100px 0;
+    
     @media screen and (max-width: 980px) {
         @for $i from 1 through 3 {
             &.img-#{$i} {
                 background-image: url(../assets/image/img-#{$i}.png);
-                background-position: center center;
+                background-position: center left;
                 background-repeat: no-repeat;
                 background-size: contain;
             }
@@ -127,15 +128,18 @@ p, ol, ul, li {
         border-radius: 10px;
         margin-top: 100px;
         margin-right: -30px;
+        width: 100%;
         .icone {
-            display: flex;
+           display: flex;
+           width: 100%;
+           
             p {
                 padding-left:40px;
                 color: $color-6;        
             }
 
             img {
-                margin: auto; 
+                // margin: auto; 
             }
             padding: 20px;
         }
@@ -146,6 +150,27 @@ p, ol, ul, li {
 
         .jwplayer {
             margin: 0 auto;
+            .jw-background-color  {
+                background-color: #FFF;
+            }
+            .jw-button-color {
+                color: #ffb835 !important;
+            }
+            .jw-icon-rewind {
+                display: none;
+            }
+            .jw-knob {
+                background-color: #ffb835;
+                width: 0.6em;
+                height: 0.6em;
+                border: 2px solid #bac4b9;
+            }
+            .jw-progress {
+                background-color: #ffb835;
+            }
+            .jw-rail {
+                background-color: #bac4b9;
+            }
         }
     }
 }
