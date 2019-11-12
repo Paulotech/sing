@@ -170,7 +170,22 @@ $accordionColors:(
         color: $color-1;
         // border-bottom: 1px solid black;
         cursor: pointer;
+        position: relative;
 
+        &.visto {
+            position: relative;
+            &::after {
+                position: absolute;
+                font-family: "Font Awesome 5 Free"; 
+                font-size: 30px;
+                font-weight: 900; 
+                content: "\f00c";
+                top: 15px;
+                right: 20px;
+                z-index: 1;
+                color:green;
+            }
+        }
         h4 {
             position: relative;
             margin-left: 70px;
@@ -311,6 +326,9 @@ $accordionColors:(
         color: $color-1;
     }
 }
+
+
+
 
 @media screen and (max-width: 760px) {
     h1 {
