@@ -102,11 +102,25 @@ p, ol, ul, li {
 
 .imagem-negativa {
     margin-left: -200px;
+    @media screen and (max-width: 980px) {
+        display: none;
+    }
 }
 
 .box-audio {
     @include flex(flex, center, center);
-
+    padding: 100px 0;
+    @media screen and (max-width: 980px) {
+        @for $i from 1 through 3 {
+            &.img-#{$i} {
+                background-image: url(../assets/image/img-#{$i}.png);
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+        }
+    }
+    
     .audio-content {
         background-color: $color-4;
         padding: 50px 20px;
@@ -128,6 +142,10 @@ p, ol, ul, li {
         
         .audio {
             @include flex(flex, center, center);
+        }
+
+        .jwplayer {
+            margin: 0 auto;
         }
     }
 }
