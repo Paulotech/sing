@@ -180,6 +180,31 @@ p, ol, ul, li {
         .audio {
             @include flex(flex, center, center);
         }
+
+        .jwplayer {
+            margin: 0 auto;
+            .jw-background-color  {
+                background-color: #FFF;
+            }
+            .jw-button-color {
+                color: #ffb835 !important;
+            }
+            .jw-icon-rewind {
+                display: none;
+            }
+            .jw-knob {
+                background-color: #ffb835;
+                width: 0.6em;
+                height: 0.6em;
+                border: 2px solid #bac4b9;
+            }
+            .jw-progress {
+                background-color: #ffb835;
+            }
+            .jw-rail {
+                background-color: #bac4b9;
+            }
+        }
     }
 }
 
