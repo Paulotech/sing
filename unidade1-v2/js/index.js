@@ -87,7 +87,7 @@ function separaDadosLMS() {
 
 
 function gravaDados() {
-    console.log("gravaDados");
+    //console.log("gravaDados");
     lessonLocation = scrollAtual + "|" + interacoes_vistas.toString() + "|" + widthBar;
 
     if (scormAPI) {
@@ -377,7 +377,7 @@ function scroll() {
         scrollAtual = winScrollTop;        
     }
 
-    console.log(scrollAtual);
+    //console.log(scrollAtual);
     gravaDados();
 
     AOS.init({
@@ -394,6 +394,7 @@ function scroll() {
 }
 
 function habilitaVideos(){
+    console.log('habilitaVideos');
     var isStreaming = window.parent.streamingVideoFlag;
     var streamingURL = window.parent.generalMediaSource;
     var streamingProtocol = window.parent.streamingManifest;  
@@ -454,18 +455,21 @@ function stopAllPlayer(playerId){
 
 function habilitaAudio(){
     //Audios
+    console.log('habilitaAudio');
     var playerInstance = [];
     var audios = document.querySelectorAll(".audio");
+
+    console.log(audios);
 
     for (var i = 0; i < audios.length; i++){
         playerInstance[i] = jwplayer(audios[i].id);
 
-        playerInstance[0].setup({
-            file: "audios/"+audios[i].id+".mp3",
+        playerInstance[i].setup({
+            file: "assets/midias/audios/"+audios[i].id+".mp3",
             width: "60%",
             height: 40,
             "skin": {
-                "name": "custom2"
+                "name": "custom-"+audios[i].id
             },
             events: {
                 onComplete: function(){                                
