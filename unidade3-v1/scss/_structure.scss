@@ -31,6 +31,14 @@ p, ol, ul, li {
     }
 }
 
+span {
+    font-family: "Open Sans";
+    font-size: 32px;
+    strong {
+        font-family: "Open Sans bold";
+    }
+}
+
 .title {
     font-family: "Noto Serif";
     strong {
@@ -57,9 +65,7 @@ p, ol, ul, li {
             left: -10px;
         }
     }
-}
-
-
+}  
 
 .opening {
     @include flex(flex, center, center);
