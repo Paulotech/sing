@@ -55,12 +55,13 @@ $colors: (
     .bgc-#{$name} {
         background-color: $color;
     }
+    
     .lista-#{name} {
         position: relative;
         z-index: 1;
         li {
             position: relative;
-            margin-left: 10px;
+            margin-left: 15px;
             &::before {
                 content: "•";
                 color: $color;
@@ -72,7 +73,7 @@ $colors: (
                 height: 20px;
             }
         }
-    }    
+    }
 
     $i: 0;
     @while $i <= 100 {
@@ -163,7 +164,7 @@ $i: 0;
     .bdr-br-#{$i} {
         border-bottom-right-radius: $i + px;
     }
-$i: $i + 1;
+    $i: $i + 1;
 }
 
 @for $i from 0 through 100 {
