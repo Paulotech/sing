@@ -1,0 +1,55 @@
+.card-content {
+    @include flex(flex, center, center);
+    width: 100%;
+    .card {
+        @include flex(flex, center, center);
+        width: 350px;
+        height: 350px;
+        color: $color-1;
+        width: 100%;
+        
+        .front {
+            position: relative;
+            border-radius: 10px;
+            border: 2px solid $color-20;
+            background-color: $color-1;
+            @include flex(flex, center, center);
+            cursor: pointer;
+            &::before {
+                background-image: url('../assets/image/icon-plus.png');
+                position: absolute;
+                content:"";
+                height: 25px;
+                width: 25px;
+                bottom:10px;
+                right:10px;
+            }
+        }
+        
+        .back {
+            border-radius: 10px;
+            border: 1px solid $color-20;
+            background-color: $color-1;
+            @include flex(flex, center, center);
+            flex-direction: column;
+            padding: 30px;
+            cursor: pointer;
+            p {
+                border-radius: 10px;
+                padding: 30px 100px;
+                background-color: $color-20;
+            }
+        }
+    }
+}
+
+.cardboard {
+    @include flex(flex, center, center);
+    flex-direction: column;
+    border-radius: 10px;
+    border: 2px solid $color-20;
+    background-color: $color-1;
+    height: 400px;
+    padding: 35px;
+    text-align: center;
+}

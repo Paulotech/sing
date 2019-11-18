@@ -48,14 +48,36 @@ $colors: (
     "blue-light": $color-22,
 );
 
+
+.lista-yellow {
+    position: relative;
+    z-index: 1;
+    li {
+        position: relative;
+        margin-left: 20px;
+        &::before {
+            content: "•";
+            color: $color-8;
+            position: absolute;
+            left: -20px;
+            font-size: 50px !important;
+            line-height: 30px;
+            width: 20px;
+            height: 20px;
+        }
+    }
+}    
+
 @each $name, $color in $colors {
     .color-#{$name} {
         color: $color;
     }
+    
     .bgc-#{$name} {
         background-color: $color;
     }
     
+<<<<<<< HEAD
     .lista-#{name} {
         position: relative;
         z-index: 1;
@@ -74,6 +96,9 @@ $colors: (
             }
         }
     }
+=======
+    
+>>>>>>> 9c893d2f480d7e2333b22386b7eda194150e8c9c
 
     $i: 0;
     @while $i <= 100 {
@@ -203,8 +228,8 @@ $i: 0;
 
 @mixin flex($d, $j, $a) {
     display: #{$d};
-    align-items: #{$j};
-    justify-content: #{$a};
+    justify-content: #{$j};
+    align-items: #{$a};
 }
 
 .flex {
