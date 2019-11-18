@@ -77,7 +77,6 @@ $colors: (
         background-color: $color;
     }
     
-<<<<<<< HEAD
     .lista-#{name} {
         position: relative;
         z-index: 1;
@@ -96,9 +95,6 @@ $colors: (
             }
         }
     }
-=======
-    
->>>>>>> 9c893d2f480d7e2333b22386b7eda194150e8c9c
 
     $i: 0;
     @while $i <= 100 {
