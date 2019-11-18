@@ -20,33 +20,76 @@ $color-19: #66d082;
 $color-20: #299f48;
 $color-21: #2b80c3;
 $color-22: #c7e6ff;
-$color-23: #ecd269;
+$color-23: #fff4c9;
 $color-24: #e3be2a;
+$color-25: #999999;
+$color-26: #f2f2f2;
 
 $colors: (
     "white": $color-1,
+    
     "gray": $color-3, 
+    "gray-little": $color-26, 
     "gray-light": $color-17, 
+    "gray-medium": $color-25, 
+    
     "yellow": $color-8, 
     "yellow-light": $color-23, 
     "yellow-dark": $color-24, 
-    "blue": $color-14, 
+    
     "red": $color-4,
-    "green-light": $color-18,
+    
     "green": $color-19,
+    "green-light": $color-18,
     "green-dark": $color-20,
+    
+    "blue": $color-14, 
     "blue-dark": $color-21,
     "blue-light": $color-22,
 );
+
+
+.lista-yellow {
+    position: relative;
+    z-index: 1;
+    li {
+        position: relative;
+        margin-left: 20px;
+        &::before {
+            content: "•";
+            color: $color-8;
+            position: absolute;
+            left: -20px;
+            font-size: 50px !important;
+            line-height: 30px;
+            width: 20px;
+            height: 20px;
+        }
+    }
+}    
 
 @each $name, $color in $colors {
     .color-#{$name} {
         color: $color;
     }
+    
     .bgc-#{$name} {
         background-color: $color;
     }
     
+    
+
+    $i: 0;
+    @while $i <= 100 {
+        .bgc-gdt-#{$name}-#{$i} {
+            background: linear-gradient($color, $color);
+            background-repeat: no-repeat;
+            background-size: 100% 0% + $i;
+            background-position: center center;
+        }
+        $i: $i + 1;
+    }
+
     .banner-#{$name} {
         position: relative;
         &::after {
@@ -62,7 +105,6 @@ $colors: (
 
     .banner-small-#{$name} {
         position: relative;
-        
         &::after {
             content: "";
             position: absolute;
@@ -71,6 +113,11 @@ $colors: (
             height: 30px;
             top: 30px;
             left: -520px;
+        }
+        &.little {
+            &::after {
+                top: 10px !important;
+            }    
         }
     }
 
@@ -92,7 +139,40 @@ $colors: (
     }
 }
 
+$f: 0;
+@while $f <= 100 {
+    .bgc-img-#{$f} {
+        background-image: url("../assets/image/bgc-img-#{$f}.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+    }
+
+    $f: $f + 1;
+}
+
+$i: 0;
+@while $i <= 100 {
+    .bdr-#{$i} {
+        border-radius: $i + px;
+    }
+    .bdr-tl-#{$i} {
+        border-top-left-radius: $i + px;
+    }
+    .bdr-tr-#{$i} {
+        border-top-right-radius: $i + px;
+    }
+    .bdr-bl-#{$i} {
+        border-bottom-left-radius: $i + px;
+    }
+    .bdr-br-#{$i} {
+        border-bottom-right-radius: $i + px;
+    }
+$i: $i + 1;
+}
+
 @for $i from 0 through 100 {
+
     .pd-#{$i} {
         padding: 0px + $i;
     }
@@ -127,8 +207,8 @@ $colors: (
 
 @mixin flex($d, $j, $a) {
     display: #{$d};
-    align-items: #{$j};
-    justify-content: #{$a};
+    justify-content: #{$j};
+    align-items: #{$a};
 }
 
 .flex {

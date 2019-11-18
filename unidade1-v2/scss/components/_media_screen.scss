@@ -1,0 +1,42 @@
+
+@media screen and (max-width: 760px) {
+    h1 {
+        font-size: 50px !important;
+    }
+    
+    h2 {
+        font-size: 40px !important;
+    }
+    
+    h3 {
+        font-size: 22px !important;
+    }
+    
+    h4 {
+        font-size: 18px !important;
+    }
+    
+    h5 {
+        font-size: 16px !important;
+    }
+    
+    p, ol, ul, li {
+        font-family: "Open Sans";
+        font-size: 16px !important;
+        strong {
+            font-family: "Open Sans bold";
+        }
+    }
+}
+@media screen and (max-width: 580px) {
+    .opening {
+        .containerCurso {
+            h1 {
+                font-size: 40px !important;
+            }
+            h2 {
+                font-size: 32px !important;
+            }
+        }
+    }
+}

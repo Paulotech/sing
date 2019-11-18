@@ -211,12 +211,23 @@ function iniciaCurso() {
     winScroll = (document.body.scrollHeight || document.documentElement.scrollHeight) - window.innerHeight;            
 
     if (!travaInteracao){                
-       $("#accordion .accordion-header").on("click", function (){            
+        $("#accordion .accordion-header").on("click", function (){            
             $(this).addClass("visto");
             this.parentNode.dataset.visto = "true";           
         });
 
-        $(".card").flip();        
+        $(".card").flip(); 
+
+        $('.slick').slick({
+            infinite: false,
+            speed: 300,
+            slidesToShow: 1,
+            adaptiveHeight: true
+        });
+
+        habilitaVideos();
+        habilitaAudio();
+
     }else{
         $("section").addClass("d-none");        
         sections = document.querySelectorAll("section");        
@@ -233,19 +244,19 @@ function iniciaCurso() {
 };
 
 function exibeInteracao(){
-    var interactions = [".container-video", ".accordion-header", ".card-content", ".audio-content"];
+    var interactions = [".container-video", ".accordion-header", ".card-content", ".audio-content", ".slick"];
 
     if (sections[section_atual]){
         for (var j = 0; j < interactions.length; j++){            
             var int = sections[section_atual].querySelector(interactions[j]);
             var orientacao = mensagem.querySelector(".orientation");
-
+            console.log(int);
             if (int){
                 sections[section_atual].classList.remove("d-none");
                 var tot_int = sections[section_atual].querySelectorAll(interactions[j]);
 
                 if (j == 0){                    
-                    if (interacoes_vistas[section_atual] == 1){
+                    /*if (interacoes_vistas[section_atual] == 1){
                         console.log('habilitaVideo');
                         var videoPlayer = int.querySelector("div");                     
                         videoPlayer.dataset.visto = "true";
@@ -253,7 +264,8 @@ function exibeInteracao(){
                         finalizaInteracao(section_atual);
                     }else{
                         exibeMensagemInteracao("Assista ao Vídeo para prosseguir");
-                    }
+                    }*/                    
+                    habilitaVideo();
                 }else if (j == 1){
                     console.log('habilitaAccordion');
                     habilitaAccordion(tot_int);                    
@@ -261,7 +273,7 @@ function exibeInteracao(){
                     console.log('habilitaCardItem');
                     habilitaCardItem(tot_int);
                 }else if(j == 3){
-                    if (interacoes_vistas[section_atual] == 1){               
+                    /*if (interacoes_vistas[section_atual] == 1){               
                         console.log('habilitaAudio'); 
                         var audios = int.querySelector(".jwplayer");                        
                         audios.dataset.visto = "true";
@@ -269,7 +281,11 @@ function exibeInteracao(){
                         finalizaInteracao(section_atual);
                     }else{                        
                         exibeMensagemInteracao("Ouça o podcast para prosseguir");
-                    }
+                    }*/
+                    habilitaAudio();
+                }else if(j == 4){
+                    console.log('habilitaSlick');
+                    habilitaSlick(tot_int);
                 }            
                 return;
             }
@@ -278,6 +294,41 @@ function exibeInteracao(){
         interacoes_vistas[section_atual] = 1;
         sections[section_atual].classList.remove("d-none");
         finalizaInteracao(section_atual);
+    }
+}
+
+function habilitaSlick(itens){
+    var cards_ct = [];
+    
+    for(i = 0; i < itens.length; i++){
+        cards_ct.push(0);
+        itens[i].id = i;       
+    }
+
+    $("#sc_"+section_atual+" .slick").slick({
+        infinite: false,
+        speed: 300,
+        slidesToShow: 1,
+        adaptiveHeight: true
+    });
+
+    $("#sc_"+section_atual+" .slick").on('afterChange', function(event, slick, currentSlide){
+        console.log(currentSlide, this, this.parentNode);
+        /*cards_ct[~~currentSlide -1] = 1;
+        $(this).addClass("visto");
+        if (cards_ct.toString().indexOf("0") == -1 && !this.parentNode.dataset.visto){
+            this.parentNode.dataset.visto = "true";       
+            interacoes_vistas[section_atual] = 1;
+            finalizaInteracao(section_atual);
+        }*/
+    });    
+
+    if (interacoes_vistas[section_atual] == 1){
+        $("#sc_"+section_atual+" .slick").data("visto", "true");        
+        finalizaInteracao(section_atual);
+    }else{
+        var orientacao = mensagem.querySelector(".orientation");
+        exibeMensagemInteracao("Veja todos os itens para prosseguir");
     }
 }
 
@@ -392,7 +443,7 @@ function scroll() {
         }
     }   
 }
-
+/*
 function habilitaVideos(){
     console.log('habilitaVideos');
     var isStreaming = window.parent.streamingVideoFlag;
@@ -414,6 +465,49 @@ function habilitaVideos(){
             objVideo.videoId = videos[i].id;                        
             openVideo(objVideo);
     }    
+}*/
+
+
+function habilitaVideos(){
+    console.log('habilitaVideos');
+    var videos = document.querySelectorAll(".video");
+
+    for (var i = 0; i < videos.length; i++){
+
+        var video = videos[i];        
+        var urlAtual = videos[i].dataset.path;
+        var ifrm = "<iframe src='https://player.vimeo.com/video/"+urlAtual+"' width='640' height='450' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe>"
+
+        video.innerHTML = ifrm;        
+    }    
+}
+
+function habilitaVideo(){
+    console.log('habilitaVideo');
+    var video = document.querySelector("#sc_"+section_atual+" .video");
+    var urlAtual = video.dataset.path;
+
+    var ifrm = document.createElement("iframe");
+        ifrm.setAttribute("src", "https://player.vimeo.com/video/"+urlAtual);
+        ifrm.setAttribute("frameborder", "0");
+        ifrm.setAttribute("width", "640");
+        ifrm.setAttribute("height", "450");        
+        ifrm.setAttribute("allow","autoplay; fullscreen");        
+        video.innerHTML(ifrm);    
+
+    /*var isStreaming = true;
+    var streamingURL = "https://vimeo.com/";
+    var streamingProtocol = "/playlist.m3u8";
+
+    
+    videos[i].dataset.poster;
+    videos[i].id;
+
+    var x = video.createElement("VIDEO");
+    x.setAttribute("src","movie.mp4");
+    x.setAttribute("controls", "controls");
+    type="application/x-mpegURL"
+    <source src="http://localhost:8080/hls/stream.m3u8"*/
 }
 
 function openVideo(videoData){
@@ -455,16 +549,32 @@ function stopAllPlayer(playerId){
 
 function habilitaAudio(){
     //Audios
-    console.log('habilitaAudio');
-    var playerInstance = [];
-    var audios = document.querySelectorAll(".audio");
-
-    console.log(audios);
+    console.log('habilitaAudio');    
+    var audios = document.querySelectorAll(".audio");    
 
     for (var i = 0; i < audios.length; i++){
-        playerInstance[i] = jwplayer(audios[i].id);
+        var x = document.createElement("AUDIO");
+        x.setAttribute("src","assets/midias/audios/"+audios[i].id+".mp3");            
+        x.setAttribute("width", "60%");
+        x.setAttribute("height", "40");
+        x.id = audios[i].id;
+        
+        x.addEventListener("timeupdate", updateAudio);
+        x.addEventListener("ended", finalizaAudio);        
 
-        playerInstance[i].setup({
+        audios[i].innerHTML = "<div id='controls' class='flex'><i class='fas fa-play'></i><i class='fas fa-pause d-none'></i><input type='range' id='progress' value='0' max='100'><i class='fas fa-volume-mute d-none'></i><i class='fas fa-volume-up'></i><input type='range' id='volume' value='100' max='100'></div>";
+        audios[i].appendChild(x);
+
+        audios[i].querySelector("#progress").addEventListener("change", atualizaProgress);
+        audios[i].querySelector("#volume").addEventListener("change", atualizaVolume);
+
+        audios[i].querySelector(".fa-play").addEventListener("click", playAudio);
+        audios[i].querySelector(".fa-pause").addEventListener("click", pauseAudio);
+        audios[i].querySelector(".fa-volume-mute").addEventListener("click", muteVolume);
+        audios[i].querySelector(".fa-volume-up").addEventListener("click", upVolume);
+
+
+        /*playerInstance[i].setup({
             file: "assets/midias/audios/"+audios[i].id+".mp3",
             width: "60%",
             height: 40,
@@ -479,6 +589,91 @@ function habilitaAudio(){
                     stopAllPlayer(this.id);
                 }
             }
-        });
+        });*/
     }
+}
+
+function updateAudio(e){
+    var progress = e.currentTarget.parentNode.querySelector("#progress");
+    var percent = (e.currentTarget.currentTime * 100) / e.currentTarget.duration;
+    progress.style.background = "linear-gradient(90deg, #edb11e "+(~~percent)+"%, #bac4b9 0%)";    
+    progress.value = percent;
+}
+
+function finalizaAudio(e){
+    console.log('finalizaAudio', e.currentTarget);
+
+    var audio = e.currentTarget.parentNode.parentNode.querySelector("audio");    
+    e.currentTarget.parentNode.querySelector(".fa-pause").classList.add("d-none");
+    e.currentTarget.parentNode.querySelector(".fa-play").classList.remove("d-none");
+    audio.pause();
+}
+
+function pauseAudio(e){
+    var audio = e.currentTarget.parentNode.parentNode.querySelector("audio");    
+    e.currentTarget.classList.add("d-none");
+    e.currentTarget.parentNode.querySelector(".fa-play").classList.remove("d-none");
+    audio.pause();
+}
+
+function playAudio(e){
+    var audio = e.currentTarget.parentNode.parentNode.querySelector("audio");    
+    e.currentTarget.classList.add("d-none");
+    e.currentTarget.parentNode.querySelector(".fa-pause").classList.remove("d-none");
+    audio.play();
+}
+
+function atualizaVolume(e){
+    console.log('atualizaVolume', e.currentTarget);
+
+    var audio = e.currentTarget.parentNode.parentNode.querySelector("audio");
+    var current = e.currentTarget.value / 100;
+    
+    e.currentTarget.style.background = "linear-gradient(90deg, #edb11e "+(e.currentTarget.value)+"%, #bac4b9 0%)";
+    audio.volume = current;
+
+    if (current == 0){
+        e.currentTarget.parentNode.querySelector(".fa-volume-mute").classList.remove("d-none");
+        e.currentTarget.parentNode.querySelector(".fa-volume-up").classList.add("d-none");        
+    }else{
+        e.currentTarget.parentNode.querySelector(".fa-volume-mute").classList.add("d-none");
+        e.currentTarget.parentNode.querySelector(".fa-volume-up").classList.remove("d-none");
+    }
+}
+
+function atualizaProgress(e){
+    console.log('atualizaProgress', e.currentTarget.value);
+    var audio = e.currentTarget.parentNode.parentNode.querySelector("audio");
+    var progress = e.currentTarget;   
+
+    var current = (e.currentTarget.value * audio.duration) / 100;
+    progress.style.background = "linear-gradient(90deg, #edb11e "+(e.currentTarget.value)+"%, #bac4b9 0%)";
+    audio.currentTime = current;    
+}
+
+function muteVolume(e){
+    console.log('muteVolume', e.currentTarget);
+    var volume = e.currentTarget.parentNode.querySelector("#volume");
+    var audio = e.currentTarget.parentNode.parentNode.querySelector("audio");
+        
+    volume.style.background = "linear-gradient(90deg, #edb11e 100%, #bac4b9 0%)";
+    volume.value = 100;
+    audio.volume = 1;
+    
+    e.currentTarget.classList.add("d-none");
+    e.currentTarget.parentNode.querySelector(".fa-volume-up").classList.remove("d-none");            
+}
+
+function upVolume(e){
+    var volume = e.currentTarget.parentNode.querySelector("#volume");
+    var audio = e.currentTarget.parentNode.parentNode.querySelector("audio");
+    console.log('upVolume', e.currentTarget, audio);
+    
+    volume.style.background = "linear-gradient(90deg, #edb11e 0%, #bac4b9 0%)";
+    volume.value = 0;
+    audio.volume = 0;
+    
+    e.currentTarget.parentNode.querySelector(".fa-volume-mute").classList.remove("d-none");
+    e.currentTarget.classList.add("d-none");        
+    
 }

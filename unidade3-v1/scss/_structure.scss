@@ -10,6 +10,7 @@ h1 {
 h2 {
     font-size: 50px;
 }
+    
 
 h3 {
     font-size: 38px;
@@ -26,14 +27,6 @@ h5 {
 p, ol, ul, li {
     font-family: "Open Sans";
     font-size: 18px;
-    strong {
-        font-family: "Open Sans bold";
-    }
-}
-
-span {
-    font-family: "Open Sans";
-    font-size: 32px;
     strong {
         font-family: "Open Sans bold";
     }
@@ -57,15 +50,15 @@ span {
     position: relative;
     li {
         position: relative;
-        margin-left: 10px;
+        margin-left: 20px;
         &::before {
             content: "•"; 
             color: #66665d;
             position: absolute;
-            left: -10px;
+            left: -15px;
         }
     }
-}  
+}
 
 .opening {
     @include flex(flex, center, center);
@@ -86,42 +79,6 @@ span {
     width: 100%;
 }
 
-.card-content {
-    @include flex(flex, center, center);
-    .card {
-        @include flex(flex, center, center);
-        width: 350px;
-        height: 350px;
-        color: $color-1;
-        
-        .front {
-            position: relative;
-            border-radius: 10px;
-            background-color: $color-4;
-            @include flex(flex, center, center);
-            cursor: pointer;
-            &::before {
-                background-image: url('../assets/image/icon-plus.png');
-                position: absolute;
-                content:"";
-                height: 25px;
-                width: 25px;
-                bottom:10px;
-                right:10px;
-            }
-        }
-        
-        .back {
-            border-radius: 10px;
-            background-color: $color-4;
-            @include flex(flex, center, center);
-            flex-direction: column;
-            padding: 30px;
-            cursor: pointer;
-        }
-    }
-}
-
 .imagem-negativa {
     margin-left: -200px;
     @media screen and (max-width: 980px) {
@@ -129,160 +86,37 @@ span {
     }
 }
 
-.box-audio {
+.box-destaque {
     @include flex(flex, center, center);
-    padding: 10px 0;
-    
-    @media screen and (max-width: 980px) {
-        @for $i from 1 through 3 {
-            &.img-#{$i} {
-                background-image: url(../assets/image/img-#{$i}.png);
-                background-position: center left;
-                background-repeat: no-repeat;
-                background-size: contain;
-            }
-        }
-    }
-    
-    .audio-content {
-        background-color: $color-4;
-        padding: 50px 20px;
-        border-radius: 10px 0 0 10px;
-        margin-right: -30px;
-        width: 100%;
-        .icone {
-           display: flex;
-           width: 100%;
-           
-            p {
-                padding-left:40px;
-                color: $color-6;        
-            }
+    flex-wrap: wrap;
+    margin: 10px 0;
+    .box-img {
+        margin: 10px 0;
+        @include flex(flex, center, center);
+        img {
             padding: 20px;
         }
-        
-        .audio {
-            @include flex(flex, center, center);
-        }
+        background-color: $color-14;
+        border-radius: 10px;
+        width: 200px !important;
+        height: 200px !important;
 
-        .jwplayer {
-            margin: 0 auto;
-            .jw-background-color  {
-                background-color: #FFF;
-            }
-            .jw-button-color {
-                color: #ffb835 !important;
-            }
-            .jw-icon-rewind {
-                display: none;
-            }
-            .jw-knob {
-                background-color: #ffb835;
-                width: 0.6em;
-                height: 0.6em;
-                border: 2px solid #bac4b9;
-            }
-            .jw-progress {
-                background-color: #ffb835;
-            }
-            .jw-rail {
-                background-color: #bac4b9;
-            }
+    }
+    .box-content {
+        display: flex;
+        align-items: center;
+        background-color: $color-17;
+        width: 70%;
+        height: 150px;
+        @media screen and (max-width: 500px) {
+            width: 100%;
+            
+        }
+        p {
+            padding:5px 10px 5px 20px;
         }
     }
 }
-
-  
-$accordionColors:( 
-    "one":#f7932d,
-    "two":#ffb835,
-    "three":#d2d532, 
-    "four":#bdd646,
-    "five":#89c64b, 
-    "six":#04a89f, 
-    "seven":#0b8ac9, 
-    "eight":#0071b3, 
-    "nine":#974196, 
-    "ten":#de3583
-);
-
-@each $key, $color in $accordionColors {
-    .accordion {
-        .#{$key} {
-            background-color: $color;
-        }
-        .accordion-content {
-            &.#{$key} {
-                background-color: $color;
-                .content {
-                    background-color: lighten($color, 30%);
-                }
-            }
-        }
-    }
-}
-
-.accordion {
-    padding: 0 0 2px 0;
-
-    .accordion-header {
-        padding: 20px;
-        color: $color-1;
-        // border-bottom: 1px solid black;
-        cursor: pointer;
-        position: relative;
-
-        &.visto {
-            position: relative;
-            &::after {
-                position: absolute;
-                font-family: "Font Awesome 5 Free"; 
-                font-size: 30px;
-                font-weight: 900; 
-                content: "\f00c";
-                top: 15px;
-                right: 20px;
-                z-index: 1;
-                color:green;
-            }
-        }
-        h4 {
-            position: relative;
-            margin-left: 70px;
-            &::before {
-                @include flex(flex, center, center);
-                position: absolute;
-                content: "+";
-                top: -7px;
-                left: -70px;
-                height: 0px;
-                width: 10px;
-                padding: 20px;
-                background-color: #bac4b9;
-            }
-        }
-
-        &.ui-state-active {
-            h4 {
-                &::before {
-                    content: "\2013";
-                }
-            }
-        }
-    }
-
-    .accordion-content {
-        padding: 0px 5px 5px 5px;
-        // margin: 0 5px 5px 5px;
-        .content {
-            padding: 40px;
-        }
-    }
-}
-
-
-
-
 .featured {
     position: relative;
     background-color: $color-4;
@@ -342,7 +176,7 @@ $accordionColors:(
     color: $color-1;
     padding: 30px 30px 30px 0px;
     border-radius: 10px;
-    margin: 150px 0;
+    margin: 50px 0;
     
     @media screen and (max-width: 800px) {
         padding: 30px;
@@ -353,7 +187,7 @@ $accordionColors:(
         position: relative;
         img {
             position: absolute;
-            top: -80px;
+            top: -100px;
             left: -50px;
             @media screen and (max-width: 1000px) {
                 top: -150px;
@@ -386,50 +220,5 @@ $accordionColors:(
     .containerCurso {
         text-align: right;
         color: $color-1;
-    }
-}
-
-
-
-
-@media screen and (max-width: 760px) {
-    h1 {
-        font-size: 50px !important;
-    }
-    
-    h2 {
-        font-size: 40px !important;
-    }
-    
-    h3 {
-        font-size: 22px !important;
-    }
-    
-    h4 {
-        font-size: 18px !important;
-    }
-    
-    h5 {
-        font-size: 16px !important;
-    }
-    
-    p, ol, ul, li {
-        font-family: "Open Sans";
-        font-size: 16px !important;
-        strong {
-            font-family: "Open Sans bold";
-        }
-    }
-}
-@media screen and (max-width: 580px) {
-    .opening {
-        .containerCurso {
-            h1 {
-                font-size: 40px !important;
-            }
-            h2 {
-                font-size: 32px !important;
-            }
-        }
     }
 }
